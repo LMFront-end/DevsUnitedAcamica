@@ -1,0 +1,28 @@
+.HeaderFeed {
+  min-width: 320px;
+  max-width: 610px;
+  margin: 0 auto;
+  height: 54px;
+  background-color: #250c23;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  .HeaderFeedContainer {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    .Perfil {
+      border-radius: 50%;
+      padding: 3px;
+      background-color: red;
+      display: flex;
+      img {
+        border-radius: 50%;
+        width: 40px;
+      }
+    }
+  }
+}

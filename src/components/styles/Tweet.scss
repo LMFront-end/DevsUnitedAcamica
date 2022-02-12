@@ -1,0 +1,62 @@
+@import "./App.scss";
+.Tweet {
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: 40px 1fr 60px;
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 0 10px;
+  border-bottom: 1px solid #60265b;
+  .Tweet_perfil {
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    img {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+    }
+  }
+  header {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: $font-mono;
+    color: white;
+    .TweetContainer_header {
+      display: flex;
+      align-items: center;
+      p {
+        margin-left: 10px;
+      }
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .Tweet_content {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    font-family: $font-mono;
+    color: white;
+  }
+  footer {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    display: flex;
+    align-items: center;
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    p {
+      margin-left: 10px;
+      color: white;
+      font-family: $font-mono;
+    }
+  }
+}

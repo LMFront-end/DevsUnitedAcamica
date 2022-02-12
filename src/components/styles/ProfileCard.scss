@@ -1,0 +1,53 @@
+@import "./App.scss";
+.ProfileCard {
+  background-color: #150714;
+  margin: 0 auto;
+  max-width: 610px;
+  min-width: 320px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  .ProfileCard_container {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    picture {
+      border-radius: 50%;
+      padding: 5px;
+      background-color: blue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 134px;
+        border-radius: 50%;
+      }
+    }
+    .ProfileCardUserName {
+      margin-top: 10px;
+    }
+  }
+  nav {
+    height: 20%;
+    display: flex;
+    background-color: aliceblue;
+    section {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: $font-pixel;
+      cursor: pointer;
+    }
+    section.Active {
+      background-color: #60265b;
+      color: #150714;
+    }
+    section.NoActive {
+      background-color: #150714;
+      color: #60265b;
+    }
+  }
+}

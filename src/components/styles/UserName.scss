@@ -1,0 +1,19 @@
+@import "./App.scss";
+.UserName {
+  background-color: #ffea5c;
+  color: black;
+  padding: 10px 0 0px 0;
+  h2 {
+    margin: 0 10px 4px 10px;
+    color: #2e132c;
+    font-family: $font-pixel;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  div {
+    background-color: #2e132c;
+    width: 4px;
+    height: 4px;
+  }
+}

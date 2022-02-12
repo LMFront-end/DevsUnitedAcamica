@@ -1,0 +1,85 @@
+@import "../styles/App.scss";
+
+.Form_register {
+  grid-column: 2/3;
+  height: 420px;
+  min-width: 500px;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: white;
+  padding: 0 25px;
+
+  h2 {
+    font-size: 3.2rem;
+    font-family: $font-pixel;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 65px;
+    span {
+      color: #f50d5a;
+    }
+  }
+  input {
+    height: 60px;
+    width: 100%;
+    background-color: #150714;
+    font-family: $font-mono;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0 20px;
+    border: none;
+    &::placeholder {
+      color: #914d8b;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  p {
+    font-family: $font-mono;
+    font-size: 1.4rem;
+  }
+  .Select_colors {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .Select_colors-color {
+      border: 4px solid transparent;
+      width: 60px;
+      cursor: pointer;
+      height: 60px;
+    }
+    .Select_colors-color:hover {
+      border: 4px solid white;
+    }
+  }
+  .RegisterLink {
+    width: 100%;
+    button {
+      background-color: #00da76;
+      border: none;
+      color: white;
+      font-family: $font-pixel;
+      height: 65px;
+      width: 100%;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    grid-column: 1/2;
+    min-width: 320px;
+    padding: 0;
+    h2 {
+      font-size: 2.5rem;
+    }
+    .Select_colors-color {
+      width: 12%;
+      height: 60px;
+      background-color: rgb(67, 83, 179);
+    }
+  }
+}

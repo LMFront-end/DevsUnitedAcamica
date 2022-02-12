@@ -1,0 +1,77 @@
+.TweetArea {
+  background-color: #150714;
+  min-width: 320px;
+  margin: 0 auto;
+  max-width: 610px;
+  height: 220px;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: 1fr 20px 40px;
+  gap: 15px;
+  padding: 10px 10px;
+  picture {
+    display: flex;
+    border-radius: 50%;
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    img {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+    }
+  }
+  .Container_tweet-area {
+    background-color: #2f112d;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    textarea {
+      width: 100%;
+      resize: none;
+      height: 100%;
+      margin-bottom: -4px;
+      border: none;
+      background-color: transparent;
+      padding: 10px 25px;
+      font-size: 1rem;
+      color: white;
+    }
+    div {
+      height: 4px;
+      background-color: #f50d5a;
+      width: 17%;
+    }
+    textarea:focus {
+      outline: none;
+    }
+    textarea::placeholder {
+      color: #914d8b;
+    }
+  }
+  .TweetInfo {
+    width: 100%;
+    height: 30px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Fira Code", monospace;
+    .Tweet_characteres {
+      color: white;
+    }
+    .Tweet_maxlength {
+      color: #f50d5a;
+    }
+  }
+  button {
+    background-color: #00da76;
+    color: black;
+    border: none;
+    font-family: "Press Start 2P", cursive;
+    justify-self: end;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+}
