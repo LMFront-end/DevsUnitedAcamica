@@ -1,10 +1,16 @@
 import "./styles/ButtonLogin.scss";
 import LogoGoogle from "../assets/google-icon.svg";
 import { LoginWithGoogle } from "../utils/auth";
+import { useNavigate } from "react-router-dom";
 
 const ButtonLogin = () => {
+  const navigate = useNavigate();
   return (
-    <button className="ButtonLogin" type="button" onClick={LoginWithGoogle}>
+    <button
+      className="ButtonLogin"
+      type="button"
+      onClick={() => LoginWithGoogle(navigate)}
+    >
       <picture>
         <img src={LogoGoogle} alt="" />
       </picture>

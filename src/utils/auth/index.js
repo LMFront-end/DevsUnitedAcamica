@@ -1,12 +1,13 @@
 import { app } from "../../firebaseConfig";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-const LoginWithGoogle = async () => {
+const LoginWithGoogle = (cb = () => {}) => {
   try {
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
-    const userData = await signInWithPopup(auth, provider);
-    console.log(userData);
+    signInWithPopup(auth, provider).then(() => {
+      return cb("/register");
+    });
   } catch (error) {
     console.log(error);
   }
