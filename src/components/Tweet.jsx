@@ -3,10 +3,14 @@ import Perfil from "../assets/perfil.png";
 import Favorite from "../assets/favorite.svg";
 import FavoriteSet from "../assets/favorite-set.svg";
 import Delete from "../assets/delete.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { UserName } from "./UserName";
+import { AppContext } from "../context/AppContext";
 
 const Tweet = () => {
+  const {
+    userData: { username },
+  } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(false);
   return (
     <article className="Tweet">
@@ -15,7 +19,7 @@ const Tweet = () => {
       </picture>
       <header>
         <div className="TweetContainer_header">
-          <UserName />
+          <UserName content={username} />
           <p>- 5 jun.</p>
         </div>
         <button>
