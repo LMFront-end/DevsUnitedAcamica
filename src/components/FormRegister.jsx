@@ -1,12 +1,15 @@
-import { useState } from "react";
-import { colors } from "../utils/colors";
+import { useContext, useState } from "react";
+import { colors } from "../hooks/colors";
 import { Link } from "react-router-dom";
 import "./styles/FormRegister.scss";
+import { AppContext } from "../context/AppContext";
 
 const FormRegister = () => {
+  const { setUserData } = useContext(AppContext);
   const [colorsInfo, setColorsInfo] = useState(colors);
   const [selectColor, setSelectColor] = useState(colors[0]);
   const [userName, setUserName] = useState("NAME");
+
   const handleSelect = (id) => {
     const newColors = colors.map((square) => {
       if (square.id === id) {
@@ -26,6 +29,16 @@ const FormRegister = () => {
     } else {
       return { borderColor: "transparent", backgroundColor: color };
     }
+  };
+
+  const handleSubmit = () => {
+    setUserData((userData) => {
+      return {
+        ...userData,
+        username: userName,
+        color: selectColor.color,
+      };
+    });
   };
 
   return (
@@ -51,7 +64,9 @@ const FormRegister = () => {
         ))}
       </section>
       <Link to="/feed" className="RegisterLink">
-        <button type="button">Continue</button>
+        <button type="button" onClick={handleSubmit}>
+          Continue
+        </button>
       </Link>
     </form>
   );
