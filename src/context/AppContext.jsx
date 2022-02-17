@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { app } from "../firebaseConfig";
 
 const AppContext = createContext(null);
 
@@ -9,10 +11,19 @@ const ContextProvider = ({ children }) => {
     uid: "",
     photo: "",
   });
+  const db = getFirestore(app);
+
+  const getUserDataFromDb = async () => {
+    console.log(userData.uid);
+    const userRef = doc(db, "users", userData.uid);
+    const user = await getDoc(userRef);
+    setUserData(user.data());
+  };
 
   const value = {
     userData,
     setUserData,
+    getUserDataFromDb,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

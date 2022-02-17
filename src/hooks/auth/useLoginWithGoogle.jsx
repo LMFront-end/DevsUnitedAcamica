@@ -27,6 +27,9 @@ const useLoginWithGoogle = (nextRoute = "/") => {
         };
         toValidateUserInDb(userDataPost.uid).then((res) => {
           if (res) {
+            setUserData((userData) => {
+              return { ...userData, uid: userDataPost.uid };
+            });
             navigate("/feed");
           } else {
             setDoc(doc(db, "users", userDataPost.uid), userDataPost);
