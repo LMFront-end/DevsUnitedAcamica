@@ -2,13 +2,16 @@ import { useContext, useState } from "react";
 import { colors } from "../hooks/colors";
 import { Link } from "react-router-dom";
 import "./styles/FormRegister.scss";
+import { updateDoc, getFirestore, doc } from "firebase/firestore";
+import { app } from "../firebaseConfig";
 import { AppContext } from "../context/AppContext";
 
 const FormRegister = () => {
-  const { setUserData } = useContext(AppContext);
   const [colorsInfo, setColorsInfo] = useState(colors);
+  const { userData } = useContext(AppContext);
   const [selectColor, setSelectColor] = useState(colors[0]);
   const [userName, setUserName] = useState("NAME");
+  const db = getFirestore(app);
 
   const handleSelect = (id) => {
     const newColors = colors.map((square) => {
@@ -32,12 +35,10 @@ const FormRegister = () => {
   };
 
   const handleSubmit = () => {
-    setUserData((userData) => {
-      return {
-        ...userData,
-        username: userName,
-        color: selectColor.color,
-      };
+    const userRef = doc(db, "users", userData.uid);
+    updateDoc(userRef, {
+      color: selectColor.color,
+      username: userName,
     });
   };
 
