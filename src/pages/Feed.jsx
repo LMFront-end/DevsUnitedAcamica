@@ -12,7 +12,7 @@ const Feed = () => {
 
   useEffect(() => {
     getUserDataFromDb();
-  }, []);
+  }, [getUserDataFromDb]);
 
   return (
     <section className="Feed">

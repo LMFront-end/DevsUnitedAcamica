@@ -14,7 +14,7 @@ const useGetTweets = () => {
       setTweets(res);
     });
     return () => unSubscribre();
-  }, []);
+  }, [db]);
   return tweets;
 };
 

@@ -1,10 +1,4 @@
-import {
-  addDoc,
-  collection,
-  doc,
-  getFirestore,
-  setDoc,
-} from "firebase/firestore";
+import { collection, doc, getFirestore, setDoc } from "firebase/firestore";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import { app } from "../../firebaseConfig";
