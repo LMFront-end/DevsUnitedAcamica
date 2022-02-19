@@ -13,7 +13,7 @@ const HeaderFeed = () => {
   return (
     <header className="HeaderFeed">
       <div className="HeaderFeedContainer">
-        <Link to="/profile">
+        <Link to="/profile/posts">
           <picture className="Perfil" style={{ backgroundColor: color }}>
             <img src={photo} alt="Perfil" />
           </picture>

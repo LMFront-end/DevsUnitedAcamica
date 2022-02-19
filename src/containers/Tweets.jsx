@@ -1,14 +1,15 @@
 import { Tweet } from "../components/Tweet";
-import { useGetTweets } from "../hooks/db/useGetTweets";
 import "./styles/Tweets.scss";
+import Nothing from "../assets/nothing.gif";
 
-const Tweets = () => {
-  const tweets = useGetTweets();
+const Tweets = ({ tweets }) => {
   return (
     <section className="Tweets">
-      {tweets.map((tweet) => {
-        return <Tweet key={tweet.id} {...tweet} />;
-      })}
+      {tweets.length === 0 && <img src={Nothing} alt="" className="Nothing" />}
+      {tweets.length > 0 &&
+        tweets.map((tweet) => {
+          return <Tweet key={tweet.id} {...tweet} />;
+        })}
     </section>
   );
 };

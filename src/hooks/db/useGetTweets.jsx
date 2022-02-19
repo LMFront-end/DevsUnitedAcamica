@@ -6,13 +6,14 @@ const useGetTweets = () => {
   const db = getFirestore(app);
   const [tweets, setTweets] = useState([]);
   useEffect(() => {
-    onSnapshot(collection(db, "/tweets"), (docs) => {
+    const unSubscribre = onSnapshot(collection(db, "/tweets"), (docs) => {
       const res = [];
       docs.forEach((doc) => {
         res.push(doc.data());
       });
       setTweets(res);
     });
+    return () => unSubscribre();
   }, []);
   return tweets;
 };

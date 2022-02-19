@@ -15,10 +15,18 @@ const TweetArea = () => {
       </picture>
       <div className="Container_tweet-area">
         <textarea
+          value={content}
           placeholder="Whats happening"
           maxLength={200}
           onChange={(e) => {
             setContent(e.target.value);
+          }}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              handlePostTweet();
+              setContent("");
+            }
           }}
         ></textarea>
         <div style={{ width: `${content.length / 2}%` }}></div>
@@ -27,7 +35,14 @@ const TweetArea = () => {
         <p className="Tweet_characteres">{content.length}</p>
         <p className="Tweet_maxlength">200 max.</p>
       </div>
-      <button onClick={() => handlePostTweet()}>POST</button>
+      <button
+        onClick={() => {
+          handlePostTweet();
+          setContent("");
+        }}
+      >
+        POST
+      </button>
     </section>
   );
 };

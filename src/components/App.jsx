@@ -13,7 +13,7 @@ function App() {
           <Route index element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/feed" element={<Feed />} />
-          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/profile/*" element={<Profile />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -6,12 +6,14 @@ import { useContext, useState } from "react";
 import { UserName } from "./UserName";
 import { AppContext } from "../context/AppContext";
 import { useLikeUser } from "../hooks/db/useLikeTweet";
+import { SweetAlert } from "./SweetAlert";
 
 const Tweet = ({ username, body, color, date, likes, uid, id }) => {
   const {
-    userData: { photo },
+    userData: { photo, uid: uidUser },
   } = useContext(AppContext);
   const handleLike = useLikeUser(id, uid, likes);
+  const [isDelete, setIsDelete] = useState(false);
   return (
     <article className="Tweet">
       <picture className="Tweet_perfil">
@@ -22,9 +24,11 @@ const Tweet = ({ username, body, color, date, likes, uid, id }) => {
           <UserName content={username} color={color} />
           <p>- {date}.</p>
         </div>
-        <button>
-          <img src={Delete} alt="delete" />
-        </button>
+        {uidUser === uid && (
+          <button onClick={() => setIsDelete(!isDelete)}>
+            <img src={Delete} alt="delete" />
+          </button>
+        )}
       </header>
       <p className="Tweet_content">{body}</p>
       <footer>
@@ -39,6 +43,7 @@ const Tweet = ({ username, body, color, date, likes, uid, id }) => {
           {likes.length}
         </p>
       </footer>
+      {isDelete && <SweetAlert handleClose={setIsDelete} id={id} />}
     </article>
   );
 };

@@ -3,6 +3,7 @@ import "./styles/ProfileCard.scss";
 import Perfil from "../assets/perfil.png";
 import { AppContext } from "../context/AppContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProfileCard = () => {
   const {
@@ -14,6 +15,7 @@ const ProfileCard = () => {
     node.classList.remove("NoActive");
     node.classList.add("Active");
   };
+  const navigate = useNavigate();
   return (
     <section className="ProfileCard">
       <div className="ProfileCard_container">
@@ -31,6 +33,7 @@ const ProfileCard = () => {
           className="Active"
           onClick={(e) => {
             handleChangeBg(e.target, e.target.nextSibling);
+            navigate("/profile/posts");
           }}
         >
           POSTS
@@ -39,6 +42,7 @@ const ProfileCard = () => {
           className="NoActive"
           onClick={(e) => {
             handleChangeBg(e.target, e.target.previousSibling);
+            navigate("/profile/favorites");
           }}
         >
           FAVORITES

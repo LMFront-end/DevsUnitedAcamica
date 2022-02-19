@@ -5,7 +5,7 @@ import {
   getFirestore,
   setDoc,
 } from "firebase/firestore";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import { app } from "../../firebaseConfig";
 
@@ -25,6 +25,7 @@ const usePostTweet = (body) => {
     username: username,
   };
   const onClick = async () => {
+    if (body.length === 0) return;
     await setDoc(reference, tweetPost);
   };
 
