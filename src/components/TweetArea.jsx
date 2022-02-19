@@ -1,14 +1,17 @@
-import Perfil from "../assets/perfil.png";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./styles/TweetArea.scss";
 import { usePostTweet } from "../hooks/db/usePostTweet";
+import { AppContext } from "../context/AppContext";
 const TweetArea = () => {
+  const {
+    userData: { photo },
+  } = useContext(AppContext);
   const [content, setContent] = useState("");
   const handlePostTweet = usePostTweet(content);
   return (
     <section className="TweetArea">
       <picture>
-        <img src={Perfil} alt="" />
+        <img src={photo} alt="" />
       </picture>
       <div className="Container_tweet-area">
         <textarea

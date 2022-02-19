@@ -1,17 +1,17 @@
 import "./styles/Tweet.scss";
-// import Perfil from "../assets/perfil.png";
 import Favorite from "../assets/favorite.svg";
 import FavoriteSet from "../assets/favorite-set.svg";
 import Delete from "../assets/delete.svg";
 import { useContext, useState } from "react";
 import { UserName } from "./UserName";
 import { AppContext } from "../context/AppContext";
+import { useLikeUser } from "../hooks/db/useLikeTweet";
 
 const Tweet = ({ username, body, color, date, likes, uid, id }) => {
   const {
     userData: { photo },
   } = useContext(AppContext);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const handleLike = useLikeUser(id, uid, likes);
   return (
     <article className="Tweet">
       <picture className="Tweet_perfil">
@@ -19,7 +19,7 @@ const Tweet = ({ username, body, color, date, likes, uid, id }) => {
       </picture>
       <header>
         <div className="TweetContainer_header">
-          <UserName content={username} />
+          <UserName content={username} color={color} />
           <p>- {date}.</p>
         </div>
         <button>
@@ -28,10 +28,14 @@ const Tweet = ({ username, body, color, date, likes, uid, id }) => {
       </header>
       <p className="Tweet_content">{body}</p>
       <footer>
-        <button onClick={() => setIsFavorite(!isFavorite)}>
-          <img src={isFavorite ? FavoriteSet : Favorite} alt="like" />
+        <button onClick={handleLike}>
+          <img src={likes.includes(uid) ? FavoriteSet : Favorite} alt="like" />
         </button>
-        <p style={isFavorite ? { color: "#F50D5A" } : { color: "white" }}>
+        <p
+          style={
+            likes.includes(uid) ? { color: "#F50D5A" } : { color: "white" }
+          }
+        >
           {likes.length}
         </p>
       </footer>

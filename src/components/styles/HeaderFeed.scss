@@ -15,10 +15,12 @@
     height: 100%;
     align-items: center;
     .Perfil {
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
-      padding: 3px;
-      background-color: red;
       display: flex;
+      align-items: center;
+      justify-content: center;
       img {
         border-radius: 50%;
         width: 40px;

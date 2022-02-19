@@ -7,7 +7,7 @@ const Tweets = () => {
   return (
     <section className="Tweets">
       {tweets.map((tweet) => {
-        return <Tweet {...tweet} />;
+        return <Tweet key={tweet.id} {...tweet} />;
       })}
     </section>
   );
