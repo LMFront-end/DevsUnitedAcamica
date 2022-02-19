@@ -1,8 +1,10 @@
 import Perfil from "../assets/perfil.png";
 import React, { useState } from "react";
 import "./styles/TweetArea.scss";
+import { usePostTweet } from "../hooks/db/usePostTweet";
 const TweetArea = () => {
   const [content, setContent] = useState("");
+  const handlePostTweet = usePostTweet(content);
   return (
     <section className="TweetArea">
       <picture>
@@ -22,7 +24,7 @@ const TweetArea = () => {
         <p className="Tweet_characteres">{content.length}</p>
         <p className="Tweet_maxlength">200 max.</p>
       </div>
-      <button>POST</button>
+      <button onClick={() => handlePostTweet()}>POST</button>
     </section>
   );
 };

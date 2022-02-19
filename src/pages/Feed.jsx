@@ -13,7 +13,6 @@ const Feed = () => {
 
   return (
     <section className="Feed">
-      {console.log(userData)}
       <HeaderFeed />
       <TweetArea />
       <Tweets />
