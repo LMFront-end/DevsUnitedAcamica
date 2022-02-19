@@ -3,3 +3,8 @@
 
 $font-pixel: "Press Start 2P", cursive;
 $font-mono: "Fira Code", monospace;
+
+.App {
+  min-height: 100vh;
+  max-height: 200vh;
+}
