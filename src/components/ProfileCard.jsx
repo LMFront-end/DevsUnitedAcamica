@@ -1,13 +1,12 @@
 import { UserName } from "./UserName";
 import "./styles/ProfileCard.scss";
-import Perfil from "../assets/perfil.png";
 import { AppContext } from "../context/AppContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ProfileCard = () => {
   const {
-    userData: { username, color },
+    userData: { username, color, photo },
   } = useContext(AppContext);
   const handleChangeBg = (node, sibling) => {
     sibling.classList.remove("Active");
@@ -20,7 +19,7 @@ const ProfileCard = () => {
     <section className="ProfileCard">
       <div className="ProfileCard_container">
         <picture style={{ backgroundColor: color }}>
-          <img src={Perfil} alt="" />
+          <img src={photo} alt="" />
         </picture>
         <UserName
           className="ProfileCardUserName"

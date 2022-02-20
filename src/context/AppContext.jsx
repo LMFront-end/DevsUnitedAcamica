@@ -14,7 +14,6 @@ const ContextProvider = ({ children }) => {
   const db = getFirestore(app);
 
   const getUserDataFromDb = async () => {
-    console.log(userData.uid);
     const userRef = doc(db, "users", userData.uid);
     const user = await getDoc(userRef);
     setUserData(user.data());
