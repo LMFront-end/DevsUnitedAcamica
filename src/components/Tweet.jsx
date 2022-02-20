@@ -8,9 +8,9 @@ import { AppContext } from "../context/AppContext";
 import { useLikeUser } from "../hooks/db/useLikeTweet";
 import { SweetAlert } from "./SweetAlert";
 
-const Tweet = ({ username, body, color, date, likes, uid, id }) => {
+const Tweet = ({ username, body, color, date, likes, uid, id, photo }) => {
   const {
-    userData: { photo, uid: uidUser },
+    userData: { uid: uidUser },
   } = useContext(AppContext);
   const handleLike = useLikeUser(id, uid, likes);
   const [isDelete, setIsDelete] = useState(false);

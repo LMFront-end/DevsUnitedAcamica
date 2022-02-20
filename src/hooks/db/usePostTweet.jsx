@@ -7,7 +7,7 @@ const usePostTweet = (body) => {
   const db = getFirestore(app);
   const reference = doc(collection(db, "tweets"));
   const {
-    userData: { username, color, uid },
+    userData: { username, color, uid, photo },
   } = useContext(AppContext);
   const tweetPost = {
     body: body,
@@ -17,6 +17,7 @@ const usePostTweet = (body) => {
     uid: uid,
     likes: [],
     username: username,
+    photo: photo,
   };
   const onClick = async () => {
     if (body.length === 0) return;

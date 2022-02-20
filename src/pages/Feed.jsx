@@ -12,7 +12,8 @@ const Feed = () => {
 
   useEffect(() => {
     getUserDataFromDb();
-  }, [getUserDataFromDb]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className="Feed">

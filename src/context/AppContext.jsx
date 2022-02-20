@@ -24,6 +24,7 @@ const ContextProvider = ({ children }) => {
     userData,
     setUserData,
     getUserDataFromDb,
+    db,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
